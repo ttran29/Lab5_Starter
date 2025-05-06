@@ -35,6 +35,13 @@ function init() {
     if (selectedOption) {
       message.voice = selectedOption;
     }
+    const faceImg = document.getElementById('face');
+    message.addEventListener('start', () => {
+      faceImg.src = 'assets/images/smiling-open.png';
+    });
+    message.addEventListener('end', () => {
+      faceImg.src = 'assets/images/smiling.png';
+    });
     synthesis.speak(message);
   });
 }
